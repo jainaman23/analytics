@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   useEffect(() => {
-    Analytics.send("Characters App Loaded")
+    Analytics.send({app: "Characters App Loaded"})
   }, [])
 
   return (
