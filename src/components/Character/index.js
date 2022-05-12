@@ -8,10 +8,12 @@ import Typography from "@mui/material/Typography";
 import Analytics from '../../analytics'
 
 export default function Character({ details }) {
-  const handleClick = () => {
+  const handleClick = (details) => {
     Analytics.event({
       category: "Characters Details",
-      action: "LEARN MORE CLICKED",
+      action: "customDetails",
+      data: details,
+      name:  details.name,
       label: "Learn More", // optional
       value: 99, // optional, must be a number
       nonInteraction: true, // optional, true/false
@@ -42,7 +44,7 @@ export default function Character({ details }) {
         </Typography>
       </CardContent>
       <CardActions sx={{justifyContent: 'center'}}>
-        <Button size="small" onClick={handleClick} >
+        <Button size="small" onClick={() => handleClick(details)} >
           Learn More
         </Button>
       </CardActions>
