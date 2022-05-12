@@ -9,6 +9,7 @@ const CharactersListing = () => {
   const [characters, setCharacters] = useState({ info: {}, results: [] });
 
   useEffect(() => {
+    Analytics.send("Characters Listing Loaded")
     fetch("https://rickandmortyapi.com/api/character")
       .then((res) => res.json())
       .then((res) => {

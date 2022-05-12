@@ -9,15 +9,9 @@ import Analytics from '../../analytics'
 
 export default function Character({ details }) {
   const handleClick = (details) => {
-    Analytics.event({
-      category: "Characters Details",
-      action: "customDetails",
-      data: details,
+    Analytics.set({
       name:  details.name,
-      label: "Learn More", // optional
-      value: 99, // optional, must be a number
-      nonInteraction: true, // optional, true/false
-      transport: "xhr", // optional, beacon/xhr/image
+      ...details,
     });
   };
 
